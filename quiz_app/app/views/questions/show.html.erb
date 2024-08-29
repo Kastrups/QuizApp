@@ -1,0 +1,14 @@
+<h1><%= @question.content %></h1>
+
+<h2>Answers</h2>
+
+<ul>
+  <% @question.answers.each do |answer| %>
+    <li>
+      <%= answer.content %> <% if answer.correct %> (Correct) <% end %>
+    </li>
+  <% end %>
+</ul>
+
+<%= link_to 'Add Answer', new_quiz_question_answer_path(@question.quiz, @question), class: 'btn btn-primary' %>
+<%= link_to 'Back to Quiz', quiz_path(@question.quiz), class: 'btn btn-secondary' %>

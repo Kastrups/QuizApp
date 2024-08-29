@@ -1,0 +1,15 @@
+<h1><%= @quiz.title %></h1>
+<p><%= @quiz.description %></p>
+
+<h2>Questions</h2>
+
+<ul>
+  <% @quiz.questions.each do |question| %>
+    <li>
+      <%= link_to question.content, quiz_question_path(@quiz, question), class: 'text-blue-500' %>
+    </li>
+  <% end %>
+</ul>
+
+<%= link_to 'Add Question', new_quiz_question_path(@quiz), class: 'btn btn-primary' %>
+<%= link_to 'Back to Quizzes', quizzes_path, class: 'btn btn-secondary' %>

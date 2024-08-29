@@ -1,0 +1,17 @@
+<h1>Edit Quiz</h1>
+
+<%= form_with(model: @quiz, local: true) do |form| %>
+  <div>
+    <%= form.label :title %>
+    <%= form.text_field :title, class: 'form-control' %>
+  </div>
+  <div>
+    <%= form.label :description %>
+    <%= form.text_area :description, class: 'form-control' %>
+  </div>
+  <div>
+    <%= form.submit 'Update Quiz', class: 'btn btn-primary' %>
+  </div>
+<% end %>
+
+<%= link_to 'Back to Quizzes', quizzes_path, class: 'btn btn-secondary' %>

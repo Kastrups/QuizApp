@@ -1,0 +1,21 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  username: kastrups
+  password: kakucis
+  host: localhost
+
+development:
+  <<: *default
+  database: quiz_app_development
+
+test:
+  <<: *default
+  database: quiz_app_test
+
+production:
+  <<: *default
+  database: quiz_app_production
+  username: quiz_app
+  password: <%= ENV["QUIZ_APP_DATABASE_PASSWORD"] %>

@@ -1,0 +1,22 @@
+<nav class="bg-gray-800 p-4">
+  <div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16">
+      <div class="flex items-center">
+        <a href="<%= root_path %>" class="text-white text-xl font-bold">
+          QuizApp
+        </a>
+      </div>
+      <div class="flex items-center space-x-4">
+        <a href="<%= quizzes_path %>" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
+          Quizzes
+        </a>
+        <% if user_signed_in? %>
+          <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: 'text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium' %>
+        <% else %>
+          <%= link_to 'Login', new_user_session_path, class: 'text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium' %>
+          <%= link_to 'Sign Up', new_user_registration_path, class: 'text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium' %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</nav>
